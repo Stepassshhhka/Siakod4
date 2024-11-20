@@ -19,20 +19,20 @@ public class Server {
                 ) {
                     String line;
                     while ((line = in.readLine()) != null) {
-                        if (".".equals(line)) {
-                            out.println("good bye");
+                        if ("Выход".equals(line)) {
+                            out.println("Всего ХоРоШеГо");
                             break;
                         }
 
 
-                        System.out.println("Received: " + line);
+                        System.out.println("Получено: " + line);
                         String[] parts = line.split(" ");
                         String command = parts[0];
 
                         switch (command) {
                             case "set":
                                 if (parts.length != 3) {
-                                    out.println("Invalid command format");
+                                    out.println("Какой-то Invalid ты ввел");
                                 } else {
                                     data.put(parts[1], parts[2]);
                                     out.println("OK");
@@ -40,11 +40,11 @@ public class Server {
                                 break;
                             case "get":
                                 if (parts.length != 2) {
-                                    out.println("Invalid command format");
+                                    out.println("какой-то Invalid ты ввел");
                                 } else {
                                     String value = data.get(parts[1]);
                                     if (value == null) {
-                                        out.println("Key not found");
+                                        out.println("Ключ не найден");
                                     } else {
                                         out.println(value);
                                     }
@@ -52,17 +52,17 @@ public class Server {
                                 break;
                             case "del":
                                 if (parts.length != 2) {
-                                    out.println("Invalid command format");
+                                    out.println("какой-то Invalid ты ввел");
                                 } else {
                                     if (data.delete(parts[1])) {
                                         out.println("OK");
                                     } else {
-                                        out.println("Key not found");
+                                        out.println("Ключ не найден");
                                     }
                                 }
                                 break;
                             default:
-                                out.println("Unknown command");
+                                out.println("Что это?");
                                 break;
                         }
                     }

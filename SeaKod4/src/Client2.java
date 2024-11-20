@@ -5,7 +5,7 @@ public class Client2 {
 
     public static void main(String[] args) throws IOException {
         Socket clientSocket = new Socket("localhost", 8080);
-        System.out.println("Client connected to server");
+        System.out.println("Клиент подключился к серверу");
 
         try (
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -13,13 +13,13 @@ public class Client2 {
                 BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
         ) {
             while (true) {
-                System.out.print("Enter command: ");
+                System.out.print("Введите команду: ");
                 String command = console.readLine();
                 out.println(command);
-                System.out.println("Sent: " + command);
+                System.out.println("Отправлено: " + command);
 
                 String response = in.readLine();
-                System.out.println("Received: " + response);
+                System.out.println("Получено: " + response);
             }
         } catch (IOException e) {
             e.printStackTrace();
