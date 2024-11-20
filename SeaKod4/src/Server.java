@@ -20,7 +20,7 @@ public class Server {
                     String line;
                     while ((line = in.readLine()) != null) {
                         if ("Выход".equals(line)) {
-                            out.println("Всего ХоРоШеГо");
+                            out.println("Всего ХоРоШеГо!");
                             break;
                         }
 
