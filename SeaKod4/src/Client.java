@@ -20,6 +20,10 @@ public class Client {
 
                 String response = in.readLine();
                 System.out.println("Получено: " + response);
+
+                if ("Выход".equalsIgnoreCase(command)) {
+                    break; // Выходим из цикла, если введена команда "Выход"
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
